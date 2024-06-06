@@ -2,7 +2,9 @@ import json
 import requests
 import os
 import archetype
+import tkinter as tk
 
+from tkinter import messagebox
 from archetype import Archetype
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
@@ -102,3 +104,9 @@ if __name__ == "__main__":
     )
 
    # validArchetypes = Archetype.getValidArchetypes([CreatureType.UNDEAD,CreatureType.QUILLBOAR, CreatureType.BEAST])
+    root = tk.Tk()
+    root.title("my Tkinter App")
+    root.geometry("400x300")
+    label = tk.Label(root, text = "test test. is this horizontally centered")
+    label.pack(pady=10)
+    root.mainloop()
