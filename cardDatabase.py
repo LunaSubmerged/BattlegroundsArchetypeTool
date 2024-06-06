@@ -3,6 +3,7 @@ import requests
 import os
 import archetype
 
+from archetype import Archetype
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 from enum import Enum
@@ -91,14 +92,13 @@ if __name__ == "__main__":
     load_dotenv()
     cardDatabase = CardDatabase()
 
-    undead_attack_stacking = archetype.Archetype(
+    undead_attack_stacking = Archetype(
         name= "Undead Attack Stacking",
-        mandatoryTypes=[CreatureType.UNDEAD],
-        optionalTypes=[CreatureType.BEAST, CreatureType.MECH, CreatureType.MURLOC],
         coreMinions=cardDatabase.getMinions("Archlinch Kel'Thuzad", "hateful hag", "handless forsaken"),
         optionalMinions=cardDatabase.getMinions("nerubian deathswarmer", "murgl mk II"),
         tier=5,
+        availabilityFunc= lambda list: CreatureType.UNDEAD in list,
         description="Stack permanent attack buffs on your undead, use deathrattle and reborn to attack numerous times."
     )
 
-    undead_attack_stacking.printArchetypeInfo()
+   # validArchetypes = Archetype.getValidArchetypes([CreatureType.UNDEAD,CreatureType.QUILLBOAR, CreatureType.BEAST])
