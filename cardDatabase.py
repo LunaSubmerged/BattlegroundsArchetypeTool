@@ -102,6 +102,11 @@ if __name__ == "__main__":
         availabilityFunc= lambda list: CreatureType.UNDEAD in list,
         description="Stack permanent attack buffs on your undead, use deathrattle and reborn to attack numerous times."
     )
+    nalaa_spells = Archetype(
+        name= "Nalaa Spells"
+        coreMinions=cardDatabase.getMinions("Nalaa the Redeemer", "Whirling Lass-o-Matic", "Brann Bronze Beard", "Shell Whistler", "Draconic Deathscale", "Rylak Metalhead")
+        optionalMinions=("Foe Reaper 4000", "Transmuted Bramblewitch", "Blade Collector", "Young Murk-Eye")
+    )
 
    # validArchetypes = Archetype.getValidArchetypes([CreatureType.UNDEAD,CreatureType.QUILLBOAR, CreatureType.BEAST])
     root = tk.Tk()
